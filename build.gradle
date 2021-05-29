@@ -1,0 +1,44 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // https://mvnrepository.com/artifact/com.github.kenglxn.qrgen/javase
+    implementation group: 'com.github.kenglxn.qrgen', name: 'javase', version: 'v2.2.0'
+    // implementation 'com.github.Cloudmersive:Cloudmersive.APIClient.Java:v3.54'
+    // https://mvnrepository.com/artifact/net.sf.barcode4j/barcode4j
+    implementation group: 'net.sf.barcode4j', name: 'barcode4j', version: '2.1'
+    // https://mvnrepository.com/artifact/net.sourceforge.barbecue/barbecue
+    implementation group: 'net.sourceforge.barbecue', name: 'barbecue', version: '1.5-beta1'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+}
+tasks.register('uberJar', Jar) {
+    archiveClassifier = 'uber'
+
+    from sourceSets.main.output
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

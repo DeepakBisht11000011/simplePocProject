@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Images</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="shortcut icon" href="#" />
+</head>
+<header><h1>Image Upload</h1></header>
+<body>
+    <div class="container center-align">
+        <form class="form" id="form-upload">
+            <label for="imageFile" class="label">Upload a Image</label><input id="imageFile" type="file" accept="image/*" class="form-file" alt=""/>
+            <input id="base64convertedvalue" name="imageFile" type="hidden"/>
+            <button type="submit" onsubmit="event.preventDefault()" id="form-submit" class="btn btn-dark d-block">Base 64 Image Upload</button>
+        </form>
+
+        <form class="form" id="form-upload-1" method="POST" th:action="@{/uploadMultiPartFile}" enctype="multipart/form-data">
+            <label for="imageFile" class="label">Upload an Image</label><input id="imageFileInput" name="imageFileInput" type="file" accept="image/*" class="form-file" alt=""/>
+            <button type="submit" id="form-submit-button" class="btn btn-dark d-block">Image Upload</button>
+        </form>
+        
+        <form class="form" id="form-upload-2">
+            <label for="myFileInput2" class="label">Upload an Image</label>
+            <input id="myFileInput2" type="file" accept="image/*;capture=camera" name="imageFileInput2">
+            <button type="submit" onsubmit="event.preventDefault()" id="form-submit-button1" class="btn btn-dark d-block">Image Upload</button>
+        </form>        
+    </div>
+</body>
+<footer>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/imageUpload.js}"></script>
+</footer>
+</html>

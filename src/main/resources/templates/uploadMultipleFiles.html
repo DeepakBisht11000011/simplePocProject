@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capture Images</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/uploadMultipleFiles.css}" />
+    <link rel="shortcut icon" href="#" />
+</head>
+<header><h1>Camera Capture</h1></header>
+	<form class="form">
+		<input class="form-control-file" type="file" accept="images/*" name="file1" id="form-file1"/>
+		<input class="form-control-file" type="file" accept="images/*" name="file2" id="form-file2"/>
+	</form>
+	<button class="btn btn-success" id="form-submit">Submit</button>
+	<br/><br/>
+	<form id="text-form">
+		<input class="form-control" type="text" name="Name" id="Name-id" />
+		<input class="form-control" type="text" name="Profession" id="Profession-id" />
+	</form>
+	<button class="btn btn-success" id="submit-text-form">Submit Text Form</button>
+	
+<body>
+</body>
+<footer>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/uploadMultipleFiles.js}"></script>
+</footer>
+</html>

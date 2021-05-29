@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capture Images</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/captureCamera.css}" />
+    <link rel="shortcut icon" href="#" />
+</head>
+<header><h1>Camera Capture</h1></header>
+<body>
+<button type="button" class="btn btn-info btn-lg" id="captureImg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<br/>
+<br/>
+<div>
+    <p id="captured-image-paragraph">
+
+    </p>
+</div>
+</body>
+<footer>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Capture Image</h4>
+                    <button type="button" class="close d-inline" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" id="capture-div">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6"><video id="capture-body"></video></div>
+                            <div class="col-6"><canvas id="canvas"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="capture-button">Capture</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/cameraCapture.js}"></script>
+</footer>
+</html>
