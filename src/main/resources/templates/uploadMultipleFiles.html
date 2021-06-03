@@ -8,9 +8,13 @@
     <link rel="shortcut icon" href="#" />
 </head>
 <header><h1>Camera Capture</h1></header>
-	<form class="form">
+	<form class="form" id="multiPartFileForm">
+		<!--for v3-->
 		<input class="form-control-file" type="file" accept="images/*" name="file1" id="form-file1"/>
 		<input class="form-control-file" type="file" accept="images/*" name="file2" id="form-file2"/>
+		<!--for v2-->
+		<!--<input class="form-control-file" type="file" accept="images/*" name="parameter" id="form-file1"/>
+		<input class="form-control-file" type="file" accept="images/*" name="parameter" id="form-file2"/>-->
 	</form>
 	<button class="btn btn-success" id="form-submit">Submit</button>
 	<br/><br/>

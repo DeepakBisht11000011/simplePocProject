@@ -6,7 +6,7 @@ function convertToBase64(file){
         reader.onerror = error => reject(error);
     })
 }
-
+/*
 $('#form-submit').click(function(){
 	let formData = new FormData();
 	let input1 = $('#form-file1');
@@ -31,6 +31,32 @@ $('#form-submit').click(function(){
 		cache:false,
         contentType: false,
         processData: false,
+		data:formData,
+		success:successCallBack,
+		error:errorCallBack,
+	});
+});
+*/
+
+$('#form-submit').click(function(){
+	let form = document.getElementById("multiPartFileForm");
+	let formData = new FormData(form);
+	let URLparam = "/v2";
+	let URLForAjax = "/uploadMultipleFiles"+URLparam;
+	let successCallBack = function(resp){
+		console.log('in success');
+		console.log(resp);
+	};
+	let errorCallBack = function(resp){
+		console.log('in failure');
+		console.log(resp);
+	};
+	$.ajax({
+		url: URLForAjax,
+		type:'POST',
+		cache:false,
+		contentType: false,
+		processData: false,
 		data:formData,
 		success:successCallBack,
 		error:errorCallBack,
